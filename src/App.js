@@ -3,13 +3,49 @@ import Navbar from "./Navbar";
 import MotionSection from "./MotionSection";
 import { motion } from "framer-motion";
 
+/* ================= DATA ================= */
+
 const projects = [
-  ["Hypertext Project", "Creative character-driven concept build"],
-  ["Database App", "SQL-driven structured application"],
-  ["Portfolio Concept", "Design-focused UI experiment"],
-  ["UI/UX Build", "Minimal and modern interface"],
-  ["Visual Design", "Layout and colour exploration"],
-  ["Full Stack App", "Flask, SQL, React integration"],
+  {
+    title: "Full Stack Web Application",
+    role: "Full Stack Developer",
+    tech: ["React", "Flask", "SQL"],
+    description:
+      "Built a full-stack web application with authentication, RESTful APIs, and database-driven functionality.",
+    outcome:
+      "Delivered a scalable architecture with clean UI and reliable data handling.",
+  },
+  {
+    title: "UI / UX Portfolio",
+    role: "Front-End Developer",
+    tech: ["React", "Tailwind CSS"],
+    description:
+      "Designed and developed a modern portfolio focused on accessibility, layout clarity, and subtle motion.",
+    outcome:
+      "Improved user engagement and demonstrated strong design system thinking.",
+  },
+  {
+    title: "Database Application",
+    role: "Back-End Developer",
+    tech: ["Python", "SQL"],
+    description:
+      "Implemented a structured relational database with optimized queries and validation logic.",
+    outcome:
+      "Ensured performance, data integrity, and maintainability.",
+  },
+];
+
+const experience = [
+  {
+    company: "Independent Projects",
+    role: "Front-End / Full Stack Developer",
+    period: "2023 — Present",
+    details: [
+      "Developed responsive web applications using React and Tailwind CSS",
+      "Built and integrated Flask APIs with SQL databases",
+      "Focused on accessibility, performance, and clean UI architecture",
+    ],
+  },
 ];
 
 const techStack = [
@@ -20,8 +56,10 @@ const techStack = [
   ["SQL", "/sql.png"],
   ["Jinja", "/jinja.svg"],
   ["Flask", "/flask.webp"],
-  ["Tailwind", "/tailwind.png"],
+  ["Tailwind CSS", "/tailwind.png"],
 ];
+
+/* ================= APP ================= */
 
 function App() {
   return (
@@ -29,15 +67,12 @@ function App() {
       <Navbar />
 
       {/* ================= HERO ================= */}
-      <section
-        id="home"
-        className="pt-40 pb-32 flex justify-center px-6"
-      >
+      <section id="home" className="pt-40 pb-32 px-6">
         <MotionSection>
-          <div className="max-w-3xl text-center mx-auto">
+          <div className="max-w-3xl mx-auto text-center">
             <motion.img
               src="/anime.avif"
-              alt="Darrel avatar"
+              alt="Portrait of Darrel, web developer"
               className="w-48 h-48 rounded-full mx-auto mb-8 border-4 border-cyan-400/40 shadow-xl"
               whileHover={{ scale: 1.05 }}
             />
@@ -47,7 +82,7 @@ function App() {
             </h1>
 
             <p className="text-gray-300 text-lg leading-relaxed">
-              Front-end & full-stack developer focused on building clean,
+              Front-end and full-stack developer focused on building clean,
               accessible, and modern digital experiences.
             </p>
 
@@ -65,25 +100,77 @@ function App() {
 
       {/* ================= PROJECTS ================= */}
       <section id="projects" className="py-28 px-6 bg-black/40">
-        <div className="max-w-6xl mx-auto">
-          <MotionSection>
-            <h2 className="text-3xl font-bold text-cyan-400 mb-16 text-center">
-              Projects
-            </h2>
-          </MotionSection>
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-cyan-400 mb-16 text-center">
+            Projects
+          </h2>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
-            {projects.map(([title, desc], i) => (
-              <MotionSection key={title} delay={i * 0.08}>
-                <div className="bg-gray-900 p-6 rounded-xl border border-white/10 hover:border-cyan-400/50 transition">
-                  <h3 className="text-lg font-semibold text-cyan-300 mb-2">
-                    {title}
-                  </h3>
-                  <p className="text-gray-400 text-sm">{desc}</p>
-                </div>
+          <div className="space-y-10">
+            {projects.map((project, i) => (
+              <MotionSection key={project.title} delay={i * 0.1}>
+                <article
+                  className="bg-gray-900 p-8 rounded-xl border border-white/10"
+                  aria-label={`Project ${project.title}`}
+                >
+                  <div className="flex flex-col md:flex-row md:justify-between gap-6">
+                    <div>
+                      <h3 className="text-xl font-semibold text-cyan-300">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm text-gray-400 mb-4">
+                        {project.role}
+                      </p>
+
+                      <p className="text-gray-300 mb-4">
+                        {project.description}
+                      </p>
+
+                      <p className="text-gray-400 text-sm">
+                        <strong>Outcome:</strong> {project.outcome}
+                      </p>
+                    </div>
+
+                    <ul className="flex flex-wrap gap-2 text-sm">
+                      {project.tech.map((tech) => (
+                        <li
+                          key={tech}
+                          className="bg-cyan-500/10 text-cyan-300 px-3 py-1 rounded-full"
+                        >
+                          {tech}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
               </MotionSection>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ================= EXPERIENCE ================= */}
+      <section id="experience" className="py-28 px-6">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-cyan-400 mb-16 text-center">
+            Experience
+          </h2>
+
+          {experience.map((job, i) => (
+            <MotionSection key={job.role} delay={i * 0.1}>
+              <div className="border-l-2 border-cyan-400 pl-6 mb-12">
+                <h3 className="text-xl font-semibold">{job.role}</h3>
+                <p className="text-cyan-300 text-sm mb-3">
+                  {job.company} • {job.period}
+                </p>
+
+                <ul className="list-disc list-inside text-gray-300 space-y-2">
+                  {job.details.map((detail) => (
+                    <li key={detail}>{detail}</li>
+                  ))}
+                </ul>
+              </div>
+            </MotionSection>
+          ))}
         </div>
       </section>
 
@@ -97,28 +184,12 @@ function App() {
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-12">
             {techStack.map(([name, icon]) => (
               <div key={name} className="flex flex-col items-center">
-                <img src={icon} alt={name} className="w-12 h-12 mb-2" />
+                <img src={icon} alt={`${name} logo`} className="w-12 h-12 mb-2" />
                 <span className="text-sm font-medium">{name}</span>
               </div>
             ))}
           </div>
         </div>
-      </section>
-
-      {/* ================= ABOUT ================= */}
-      <section id="about" className="py-28 px-6 bg-black/40">
-        <MotionSection>
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-cyan-400 mb-6">
-              About Me
-            </h2>
-            <p className="text-gray-300 text-lg leading-relaxed">
-              I’m a developer who values clarity, structure, and thoughtful
-              design. I enjoy turning complex ideas into elegant, scalable
-              solutions using modern web technologies.
-            </p>
-          </div>
-        </MotionSection>
       </section>
 
       {/* ================= CONTACT ================= */}
