@@ -25,128 +25,132 @@ const techStack = [
 
 function App() {
   return (
-    <div className="bg-gradient-to-b from-gray-950 via-gray-900 to-black text-white font-sans overflow-x-hidden scroll-smooth">
+    <div className="bg-gray-950 text-white font-sans scroll-smooth">
       <Navbar />
 
-      {/* ================= HOME ================= */}
+      {/* ================= HERO ================= */}
       <section
         id="home"
-        className="pt-40 min-h-screen flex flex-col items-center justify-center text-center px-6 relative"
+        className="pt-40 pb-32 flex justify-center px-6"
       >
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(34,211,238,0.15),_transparent_70%)]" />
-
         <MotionSection>
-          <motion.img
-            src="/anime.avif"
-            alt="Darrel avatar"
-            className="w-60 h-60 rounded-full mb-10 border-4 border-cyan-400/40 shadow-2xl shadow-cyan-500/40"
-            whileHover={{ scale: 1.05 }}
-          />
+          <div className="max-w-3xl text-center mx-auto">
+            <motion.img
+              src="/anime.avif"
+              alt="Darrel avatar"
+              className="w-48 h-48 rounded-full mx-auto mb-8 border-4 border-cyan-400/40 shadow-xl"
+              whileHover={{ scale: 1.05 }}
+            />
 
-          <h1 className="text-5xl md:text-7xl font-extrabold text-cyan-400 mb-6">
-            Hey, I am Darrel
-          </h1>
+            <h1 className="text-4xl md:text-6xl font-extrabold text-cyan-400 mb-6">
+              Darrel
+            </h1>
 
-          <p className="max-w-2xl text-gray-300 text-lg md:text-xl">
-            I design and build modern, clean, and meaningful digital experiences
-            using contemporary web technologies.
-          </p>
+            <p className="text-gray-300 text-lg leading-relaxed">
+              Front-end & full-stack developer focused on building clean,
+              accessible, and modern digital experiences.
+            </p>
 
-          <motion.a
-            href="#projects"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="mt-12 inline-block bg-cyan-500 hover:bg-cyan-400 text-black px-12 py-4 rounded-full font-bold shadow-lg shadow-cyan-500/30"
-          >
-            View My Work
-          </motion.a>
+            <motion.a
+              href="#projects"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-block mt-10 bg-cyan-500 hover:bg-cyan-400 text-black px-10 py-4 rounded-full font-semibold"
+            >
+              View Projects
+            </motion.a>
+          </div>
         </MotionSection>
       </section>
 
       {/* ================= PROJECTS ================= */}
-      <section id="projects" className="py-32 px-6 bg-black/40">
-        <MotionSection>
-          <h2 className="text-4xl font-bold text-cyan-400 text-center mb-20">
-            Featured Projects
-          </h2>
-        </MotionSection>
+      <section id="projects" className="py-28 px-6 bg-black/40">
+        <div className="max-w-6xl mx-auto">
+          <MotionSection>
+            <h2 className="text-3xl font-bold text-cyan-400 mb-16 text-center">
+              Projects
+            </h2>
+          </MotionSection>
 
-        <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-          {projects.map(([title, desc], i) => (
-            <MotionSection key={title} delay={i * 0.08}>
-              <div className="bg-gray-900/80 p-8 rounded-2xl border border-white/10 hover:border-cyan-400/50 hover:-translate-y-2 transition">
-                <h3 className="text-xl font-semibold text-cyan-300 mb-3">
-                  {title}
-                </h3>
-                <p className="text-gray-400 text-sm">{desc}</p>
-              </div>
-            </MotionSection>
-          ))}
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
+            {projects.map(([title, desc], i) => (
+              <MotionSection key={title} delay={i * 0.08}>
+                <div className="bg-gray-900 p-6 rounded-xl border border-white/10 hover:border-cyan-400/50 transition">
+                  <h3 className="text-lg font-semibold text-cyan-300 mb-2">
+                    {title}
+                  </h3>
+                  <p className="text-gray-400 text-sm">{desc}</p>
+                </div>
+              </MotionSection>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ================= TECH STACK ================= */}
-      <section id="tech" className="py-32 px-6 bg-grey-500 text-black">
-        <h2 className="text-4xl font-bold text-center mb-20">
-          Tools & Technologies
-        </h2>
+      {/* ================= SKILLS ================= */}
+      <section id="tech" className="py-28 px-6 bg-gray-100 text-black">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-16">
+            Tools & Technologies
+          </h2>
 
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-16 max-w-5xl mx-auto">
-          {techStack.map(([name, icon]) => (
-            <div key={name} className="relative group flex justify-center">
-              <img
-                src={icon}
-                alt={name}
-                className="w-14 h-14 transition-transform duration-300 group-hover:scale-110"
-              />
-
-              <span className="absolute -bottom-8 opacity-0 group-hover:opacity-100 transition text-sm font-medium">
-                {name}
-              </span>
-            </div>
-          ))}
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-12">
+            {techStack.map(([name, icon]) => (
+              <div key={name} className="flex flex-col items-center">
+                <img src={icon} alt={name} className="w-12 h-12 mb-2" />
+                <span className="text-sm font-medium">{name}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ================= ABOUT ================= */}
-      <section id="about" className="py-32 px-6 bg-black/40 text-center">
+      <section id="about" className="py-28 px-6 bg-black/40">
         <MotionSection>
-          <h2 className="text-4xl font-bold text-cyan-400 mb-10">About Me</h2>
-          <p className="max-w-3xl mx-auto text-gray-300 text-lg">
-            I’m a developer focused on clarity, accessibility, and modern UI
-            design. I enjoy turning complex problems into clean, elegant,
-            scalable solutions.
-          </p>
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-cyan-400 mb-6">
+              About Me
+            </h2>
+            <p className="text-gray-300 text-lg leading-relaxed">
+              I’m a developer who values clarity, structure, and thoughtful
+              design. I enjoy turning complex ideas into elegant, scalable
+              solutions using modern web technologies.
+            </p>
+          </div>
         </MotionSection>
       </section>
 
       {/* ================= CONTACT ================= */}
-      <section id="contact" className="py-32 px-6 text-center">
+      <section id="contact" className="py-28 px-6">
         <MotionSection>
-          <h2 className="text-4xl font-bold text-cyan-400 mb-10">Contact</h2>
+          <div className="max-w-xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-cyan-400 mb-6">
+              Contact
+            </h2>
 
-          <p className="text-gray-300 mb-2">
-            Email:{" "}
-            <a
+            <p className="text-gray-300 mb-2">
+              <a
+                href="mailto:darrel@gmail.com"
+                className="text-cyan-400 hover:underline"
+              >
+                darrel@gmail.com
+              </a>
+            </p>
+
+            <p className="text-gray-300 mb-10">
+              +44 1234 567890
+            </p>
+
+            <motion.a
               href="mailto:darrel@gmail.com"
-              className="text-cyan-400 hover:underline"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-block bg-cyan-500 hover:bg-cyan-400 text-black px-12 py-4 rounded-full font-semibold"
             >
-              darrel@gmail.com
-            </a>
-          </p>
-
-          <p className="text-gray-300 mb-10">
-            Phone: <span className="text-cyan-400">+44 1234 567890</span>
-          </p>
-
-          <motion.a
-            href="mailto:darrel@gmail.com"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-block bg-cyan-500 hover:bg-cyan-400 text-black px-14 py-4 rounded-full font-bold shadow-lg shadow-cyan-500/30"
-          >
-            Let’s Connect
-          </motion.a>
+              Let’s Connect
+            </motion.a>
+          </div>
         </MotionSection>
       </section>
 
