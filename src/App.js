@@ -186,7 +186,7 @@ export default function App() {
             className="inline-block bg-cyan-500 text-black px-12 py-4 rounded-full font-semibold"
             whileHover={{ scale: 1.05 }}
           >
-            Let’s Connect
+            Let us Connect
           </motion.a>
         </MotionSection>
       </section>
