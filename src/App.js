@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 import MotionSection from "./MotionSection";
 import { motion } from "framer-motion";
 
-/* ================= DATA ================= */
+/* This is the projects function */
 
 const projects = [
   {
@@ -36,7 +36,7 @@ const experience = [
   {
     role: "Front-End / Full Stack Developer",
     company: "Independent Projects",
-    period: "2023 — Present",
+    period: "2024 — Present",
     points: [
       "Built responsive React applications with Tailwind",
       "Integrated Flask APIs with SQL databases",
@@ -56,7 +56,7 @@ const techStack = [
   ["Tailwind", "/tailwind.png"],
 ];
 
-/* ================= APP ================= */
+/* This is the App function */
 
 export default function App() {
   return (
@@ -68,13 +68,13 @@ export default function App() {
         <MotionSection>
           <div className="max-w-3xl mx-auto text-center">
             <motion.img
-              src="/anime.avif"
+              src="/favicon.ico"
               alt="Portrait of Darrel, web developer"
               className="w-48 h-48 mx-auto mb-8 rounded-full border-4 border-cyan-400/40"
               whileHover={{ scale: 1.05 }}
             />
             <h1 className="text-4xl md:text-6xl font-extrabold text-cyan-400 mb-6">
-              Darrel
+              Darrel 
             </h1>
             <p className="text-gray-300 text-lg">
               Front-end and full-stack developer focused on clean, accessible,
@@ -116,7 +116,7 @@ export default function App() {
                     {p.tech.map((t) => (
                       <li
                         key={t}
-                        className="bg-cyan-500/10 text-cyan-300 px-3 py-1 rounded-full"
+                        className="bg-cyan-500/10 text-cyan-300 px-2 py-1 rounded-lg"
                       >
                         {t}
                       </li>
@@ -155,7 +155,7 @@ export default function App() {
       </section>
 
       {/* SKILLS */}
-      <section id="tech" className="py-28 px-6 bg-gray-100 text-black">
+      <section id="tech" className="py-28 px-6 bg-gray-500 text-black">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-16">
             Tools & Technologies
