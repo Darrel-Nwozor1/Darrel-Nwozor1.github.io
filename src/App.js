@@ -177,7 +177,7 @@ export default function App() {
           <h2 className="text-3xl font-bold text-cyan-400 mb-6">Contact</h2>
           <p className="mb-2">
             <a href="mailto:darrel@gmail.com" className="text-cyan-400">
-              darrel@gmail.com
+              nwozordarrel08@gmail.com
             </a>
           </p>
           <p className="mb-10 text-gray-300">+44 1234 567890</p>
