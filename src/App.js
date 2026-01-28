@@ -86,7 +86,7 @@ function App() {
       </section>
 
       {/* ================= TECH STACK ================= */}
-      <section id="tech" className="py-32 px-6 bg-white text-black">
+      <section id="tech" className="py-32 px-6 bg-grey-500 text-black">
         <h2 className="text-4xl font-bold text-center mb-20">
           Tools & Technologies
         </h2>
