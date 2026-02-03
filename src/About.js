@@ -1,5 +1,5 @@
 import React from "react";
-
+import Navbar from "./Navbar";
 const About = () => {
   return (
     <section id="about" className="my-10">
@@ -8,6 +8,8 @@ const About = () => {
         I am Darrel, a passionate software developer who enjoys creating clean
         and modern web applications. I am always exploring new technologies to
         improve my skills.
+
+      I have been   
       </p>
     </section>
   );
